@@ -10,6 +10,18 @@ import time
 import matplotlib.font_manager as fm
 
 
+# 设置中文字体（需要将 SimHei.ttf 放在同目录下）
+try:
+    font_path = './SimHei.ttf'  # 或者 ./fonts/SimHei.ttf
+    prop = fm.FontProperties(fname=font_path)
+    plt.rcParams['font.family'] = prop.get_name()
+    plt.rcParams['axes.unicode_minus'] = False
+    print("中文字体加载成功")
+except:
+    # 如果找不到字体文件，尝试系统通用名称
+    plt.rcParams['font.sans-serif'] = ['WenQuanYi Zen Hei', 'SimHei', 'Microsoft YaHei']
+    plt.rcParams['axes.unicode_minus'] = False
+    print("使用系统后备字体")
 
 
 st.set_page_config(
