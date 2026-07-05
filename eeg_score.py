@@ -13,8 +13,8 @@ st.set_page_config(
     layout="wide"
 )
 
-# st.title("🧠 实时EEG/ERP分析引擎")
-# st.caption("基于听觉Oddball范式的P300检测与保险反欺诈评分")
+st.title("🧠 实时EEG/ERP分析引擎")
+st.caption("基于听觉Oddball范式的P300检测与保险反欺诈评分")
 
 # ========== 自定义CSS：提升视觉质量 ==========
 st.markdown("""
@@ -29,8 +29,8 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<p class="main-header">🧠 实时EEG/ERP分析引擎</p>', unsafe_allow_html=True)
-st.markdown('<p class="sub-header">基于听觉Oddball ERP的脑震荡保险反欺诈智能筛查系统</p>', unsafe_allow_html=True)
+# st.markdown('<p class="main-header">🧠 实时EEG/ERP分析引擎</p>', unsafe_allow_html=True)
+# st.markdown('<p class="sub-header">基于听觉Oddball ERP的脑震荡保险反欺诈智能筛查系统</p>', unsafe_allow_html=True)
 st.markdown("---")
 
 # ============================================
