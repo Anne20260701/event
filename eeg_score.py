@@ -10,14 +10,20 @@ from scipy.signal import butter, filtfilt
 import matplotlib.font_manager as fm
 import os
 
-# 加载字体
+# 强制使用 simhei.ttf
 font_path = "./simhei.ttf"
 if os.path.exists(font_path):
+    # 清除现有字体缓存
+    fm._rebuild()
+    # 添加字体
     fm.fontManager.addfont(font_path)
+    # 获取字体属性
     prop = fm.FontProperties(fname=font_path)
+    # 设置为默认字体
     plt.rcParams['font.family'] = prop.get_name()
+    plt.rcParams['font.sans-serif'] = [prop.get_name(), 'SimHei', 'Microsoft YaHei']
 else:
-    plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei']
+    plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'WenQuanYi Zen Hei']
 
 plt.rcParams['axes.unicode_minus'] = False
 
