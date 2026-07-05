@@ -7,6 +7,11 @@ from scipy.signal import butter, filtfilt
 import pandas as pd
 import time
 
+import matplotlib.font_manager as fm
+
+
+
+
 st.set_page_config(
     page_title="实时分析引擎",
     page_icon="🧠",
