@@ -51,7 +51,7 @@ def generate_eeg_data(duration=10, fs=256, amplitude=20, latency=300, noise_leve
     # ERP事件：在特定时间点呈现刺激
     # 模拟Oddball范式：每隔1.5秒出现一个目标刺激
     # erp_signal = np.zeros(len(t))
-    erp_signal = background.copy()
+    eeg_data = background.copy()
     stimulus_times = np.arange(1.5, duration, 1.5)
 
     # P300波形参数
