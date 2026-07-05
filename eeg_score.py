@@ -1,29 +1,26 @@
 
+
 import streamlit as st
 import numpy as np
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
+from scipy import signal
+from scipy.signal import butter, filtfilt
 import pandas as pd
 import time
-import scipy.signal as signal
-from scipy.signal import butter, filtfilt
 
 import matplotlib.font_manager as fm
-import os
 
-# 强制使用 simhei.ttf
-font_path = "./simhei.ttf"
-if os.path.exists(font_path): 
-    # 添加字体
-    fm.fontManager.addfont(font_path)
-    # 获取字体属性
-    prop = fm.FontProperties(fname=font_path)
-    # 设置为默认字体
-    plt.rcParams['font.family'] = prop.get_name()
-    # plt.rcParams['font.sans-serif'] = [prop.get_name(), 'SimHei', 'Microsoft YaHei']
+# 查找系统支持的中文字体
+font_list = fm.findSystemFonts(fontpaths=None, fontext='ttf')
+chinese_fonts = [f for f in font_list if any(name in f.lower() for name in ['simhei', 'microsoft yahei', 'noto sans cjk', 'wenquanyi', 'pingfang'])]
+if chinese_fonts:
+    plt.rcParams['font.sans-serif'] = [fm.FontProperties(fname=chinese_fonts[0]).get_name()]
 else:
-    plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'WenQuanYi Zen Hei']
-
+    # 如果没找到，尝试通用名称（有时有效）
+    plt.rcParams['font.sans-serif'] = ['WenQuanYi Zen Hei', 'Noto Sans CJK SC', 'SimHei', 'Microsoft YaHei']
 plt.rcParams['axes.unicode_minus'] = False
+
+
 
 
 st.set_page_config(
@@ -473,4 +470,6 @@ else:
 
     plt.tight_layout()
     st.pyplot(fig)
+
+
 
