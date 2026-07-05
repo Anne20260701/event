@@ -126,7 +126,7 @@ def preprocess_eeg(eeg_data, fs):
     filtered = signal.detrend(filtered)
     # # 归一化
     # normalized = (filtered - np.mean(filtered)) / np.std(filtered)
-    return normalized # 不再归一化，保留幅度信息
+    return filtered # 不再归一化，保留幅度信息
 
 
 def extract_erp(eeg_data, stimulus_times, fs, pre_stim=0.2, post_stim=0.8):
