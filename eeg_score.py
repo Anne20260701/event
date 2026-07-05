@@ -7,7 +7,18 @@ import time
 import scipy.signal as signal
 from scipy.signal import butter, filtfilt
 
-plt.rcParams['font.sans-serif'] = ['WenQuanYi Zen Hei', 'SimHei', 'Microsoft YaHei']
+import matplotlib.font_manager as fm
+import os
+
+# 加载字体
+font_path = "./simhei.ttf"
+if os.path.exists(font_path):
+    fm.fontManager.addfont(font_path)
+    prop = fm.FontProperties(fname=font_path)
+    plt.rcParams['font.family'] = prop.get_name()
+else:
+    plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei']
+
 plt.rcParams['axes.unicode_minus'] = False
 
 
