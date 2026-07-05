@@ -8,7 +8,7 @@ import pandas as pd
 import time
 
 import matplotlib.font_manager as fm
-
+import os 
 
 # 设置中文字体（需要将 SimHei.ttf 放在同目录下）
 try:
