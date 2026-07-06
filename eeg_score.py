@@ -5,6 +5,23 @@ from scipy import signal
 from scipy.signal import butter, filtfilt
 import pandas as pd
 
+import matplotlib.font_manager as fm
+import os
+font_path = os.path.join(os.path.dirname(__file__), "simhei.ttf")
+    
+# 解决负号显示问题
+plt.rcParams['axes.unicode_minus'] = False
+if os.path.exists(font_path): 
+    fm.fontManager.addfont(font_path)  # 清除 matplotlib 字体缓存，重新添加 
+    font_prop = fm.FontProperties(fname=font_path)  # 找到字体名称
+    font_name = font_prop.get_name() 
+    plt.rcParams['font.family'] = font_name    # 强制设置默认字体
+    plt.rcParams['font.sans-serif'] = [font_name] 
+else:
+    # 如果找不到 simhei.ttf，尝试系统字体
+    plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'Arial Unicode MS']
+
+
 st.set_page_config(
     page_title="神积脑盾 - 实时分析引擎",
     page_icon="🧠",
